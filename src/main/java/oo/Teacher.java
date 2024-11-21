@@ -11,6 +11,9 @@ public class Teacher extends Person {
     }
 
     public String introduce() {
+        if (klasses.isEmpty()) {
+            return super.introduce();
+        }
         String formattedKlass = klasses.stream()
                 .map(klass -> klass.getNumber().toString())
                 .collect(Collectors.joining(", "));
