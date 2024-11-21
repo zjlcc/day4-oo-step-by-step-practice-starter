@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Klass {
     private Integer number;
+    private Student leader;
 
     public Klass() {
     }
@@ -31,5 +32,16 @@ public class Klass {
 
     public Integer getNumber() {
         return number;
+    }
+
+    public void assignLeader(Student student){
+        if(!student.isIn(this)){
+            System.out.println("It is not one of us.");
+        }
+        leader = student;
+    }
+
+    public boolean isLeader(Student student){
+        return Objects.equals(leader, student);
     }
 }

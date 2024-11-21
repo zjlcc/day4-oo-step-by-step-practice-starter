@@ -8,7 +8,11 @@ public class Student extends Person {
     }
 
     public String introduce() {
-        return String.format("%s I am a student. I am in class %d.", super.introduce(), klass.getNumber());
+        String introduce = String.format("%s I am a student. I am in class %d.", super.introduce(), klass.getNumber());
+        if(klass.isLeader(this)){
+           introduce = String.format("%s I am the leader of class %d.",introduce,klass.getNumber());
+        }
+        return introduce;
     }
 
     public void join(Klass klass) {
