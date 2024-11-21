@@ -14,7 +14,7 @@ public class Person {
     }
 
     public String introduce() {
-        return "My name is " + name + ". I am " + age + " years old.";
+        return String.format("My name is %s. I am %d years old.", name, age);
     }
 
     @Override
@@ -23,17 +23,14 @@ public class Person {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (Objects.isNull(object)) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        if (object.getClass().equals(this.getClass())) {
-            Person person = (Person) object;
-            return Objects.equals(person.id, this.id);
-        }
-        return false;
+        Person person = (Person) obj;
+        return Objects.equals(this.id, person.id);
     }
 }

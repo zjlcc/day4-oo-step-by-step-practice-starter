@@ -5,9 +5,10 @@ import java.util.Objects;
 public class Klass {
     private Integer number;
 
-    public Klass(){}
+    public Klass() {
+    }
 
-    public Klass(Integer number){
+    public Klass(Integer number) {
         this.number = number;
     }
 
@@ -17,18 +18,15 @@ public class Klass {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (Objects.isNull(object)) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        if (object.getClass().equals(this.getClass())) {
-            Klass klass = (Klass) object;
-            return Objects.equals(klass.number, this.number);
-        }
-        return false;
+        Klass klass = (Klass) obj;
+        return Objects.equals(this.number, klass.number);
     }
 
     public Integer getNumber() {

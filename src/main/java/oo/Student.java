@@ -8,14 +8,14 @@ public class Student extends Person {
     }
 
     public String introduce() {
-        return super.introduce() + " I am a student." + " I am in class " + klass.getNumber() + ".";
+        return String.format("%s I am a student. I am in class %d.", super.introduce(), klass.getNumber());
     }
 
-    public void join(Klass klass){
+    public void join(Klass klass) {
         this.klass = klass;
     }
 
-    public boolean isIn(Klass klass){
+    public boolean isIn(Klass klass) {
         return klass.equals(this.klass);
     }
 
