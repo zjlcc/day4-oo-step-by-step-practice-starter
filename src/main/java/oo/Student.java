@@ -9,18 +9,18 @@ public class Student extends Person {
 
     public String introduce() {
         String introduce = String.format("%s I am a student. I am in class %d.", super.introduce(), klass.getNumber());
-        if(klass.isLeader(this)){
-           introduce = String.format("%s I am the leader of class %d.",introduce,klass.getNumber());
+        if (klass.isLeader(this)) {
+            introduce = String.format("%s I am the leader of class %d.", introduce, klass.getNumber());
         }
         return introduce;
     }
 
     public void join(Klass klass) {
-        this.klass = klass;
+        klass.getStudents().add(this);
     }
 
     public boolean isIn(Klass klass) {
-        return klass.equals(this.klass);
+        return klass.getStudents().contains(this);
     }
 
     public Klass getKlass() {

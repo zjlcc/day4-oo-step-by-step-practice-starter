@@ -19,8 +19,10 @@ public class Teacher extends Person {
     }
 
     public void assignTo(Klass klass) {
-        if (!klasses.contains(klass))
+        if (!klasses.contains(klass)) {
             klasses.add(klass);
+            klass.setTeacher(this);
+        }
     }
 
     public boolean belongsTo(Klass klass) {

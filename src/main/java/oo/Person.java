@@ -33,4 +33,8 @@ public class Person {
         Person person = (Person) obj;
         return Objects.equals(this.id, person.id);
     }
+
+    public String getName() {
+        return name;
+    }
 }
