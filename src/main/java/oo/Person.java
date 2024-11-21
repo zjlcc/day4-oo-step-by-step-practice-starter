@@ -3,17 +3,18 @@ package oo;
 import java.util.Objects;
 
 public class Person {
-    private Integer id;
-    private String name;
-    private Integer age;
+    protected Integer id;
+    protected String name;
+    protected Integer age;
 
-    public Person(Integer id, String name, Integer age){
+    public Person(Integer id, String name, Integer age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
-    public String introduce(){
-        return "My name is "+ name +". I am "+ age+" years old.";
+
+    public String introduce() {
+        return "My name is " + name + ". I am " + age + " years old.";
     }
 
     @Override
@@ -23,14 +24,14 @@ public class Person {
 
     @Override
     public boolean equals(Object object) {
-        if (this == object){
+        if (this == object) {
             return true;
         }
-        if(Objects.isNull(object)){
+        if (Objects.isNull(object)) {
             return false;
         }
-        if(object.getClass().equals(this.getClass())){
-            Person person= (Person)object;
+        if (object.getClass().equals(this.getClass())) {
+            Person person = (Person) object;
             return Objects.equals(person.id, this.id);
         }
         return false;
